@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react'
 
 export const CoolComponentChild = () => {
-    const [kids, setKids] = useState(0)
+  console.log("rerendering CoolComponentChild.js")
+    const [catFact, setCatFact] = useState("No Cat Fact")
     useEffect(() => {
-      setKids(1);   
+      setCatFact(1);   
+
+      const getCatFact = async () => {
+        fetch("https://catfact.ninja/fact")
+        .then((response) => response.json())
+        .then((data) => setCatFact(data.fact));
+      }
+
+      getCatFact();
     }, [])
     return (
-        <div>{kids}</div>
+        <div>{catFact}</div>
     );
     
 }

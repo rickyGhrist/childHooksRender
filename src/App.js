@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'
 import { CoolComponent } from './coolComponent';
 
 function App() {
   const [count, setCount] = useState(0);
+  console.log("rerendering app.js")
 
   return (
     <div className="App">
